@@ -46,7 +46,7 @@ suite('DataScience - NativeNotebook helpers', () => {
         };
 
         // tslint:disable-next-line: no-any
-        const notebook = notebookModelToVSCNotebookData(model as any);
+        const notebook = notebookModelToVSCNotebookData(model as any, PYTHON_LANGUAGE);
 
         assert.isOk(notebook);
         assert.deepEqual(notebook.languages, [PYTHON_LANGUAGE]);
@@ -105,7 +105,7 @@ suite('DataScience - NativeNotebook helpers', () => {
                 isTrusted: true
             };
             // tslint:disable-next-line: no-any
-            const notebook = notebookModelToVSCNotebookData(model as any);
+            const notebook = notebookModelToVSCNotebookData(model as any, PYTHON_LANGUAGE);
 
             assert.deepEqual(notebook.cells[0].outputs, expectedOutputs);
         }

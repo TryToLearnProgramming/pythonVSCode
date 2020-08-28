@@ -48,6 +48,11 @@ export class VSCodeNotebook implements IVSCodeNotebook {
     }
     public get onDidCloseNotebookDocument(): Event<NotebookDocument> {
         return this.canUseNotebookApi
+            ? this.notebook.onDidSaveNotebookDocument
+            : new EventEmitter<NotebookDocument>().event;
+    }
+    public get onDidSaveNotebookDocument(): Event<NotebookDocument> {
+        return this.canUseNotebookApi
             ? this.notebook.onDidCloseNotebookDocument
             : new EventEmitter<NotebookDocument>().event;
     }
